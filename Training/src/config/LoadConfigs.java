@@ -5,6 +5,8 @@ import java.io.FileNotFoundException;
 import java.io.InputStream;
 import java.util.Properties;
 
+import testScripts.TrainingClass;
+
 public class LoadConfigs {
 	public static String strBrowser;
 	public static String strURL;
@@ -12,7 +14,7 @@ public class LoadConfigs {
 	{
 		Properties prop=new Properties();
 		try {
-			InputStream file=new FileInputStream("C:\\Workspace\\Training\\src\\config\\config.properties");
+			InputStream file=new FileInputStream(TrainingClass.strWorkingDir+"\\src\\config\\config.properties");
 			prop.load(file);
 			strBrowser=prop.getProperty("Browser");	
 			strURL=prop.getProperty("URL");
