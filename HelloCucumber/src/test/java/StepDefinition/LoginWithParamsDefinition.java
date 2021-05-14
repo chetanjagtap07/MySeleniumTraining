@@ -7,10 +7,12 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
 import io.cucumber.java.en.*;
+import pkgPageObjectModel.testLoginPage;
 
 public class LoginWithParamsDefinition {
 
 	WebDriver driver = null;
+	testLoginPage objLoginPage;
 
 	@Given("user is on browser")
 	public void user_is_on_browser(){
@@ -30,13 +32,17 @@ public class LoginWithParamsDefinition {
 
 	@When("^enters (.*) and (.*)$")
 	public void enters_user_and_password (String username, String password) {
-		driver.findElement(By.id("name")).sendKeys(username);
-		driver.findElement(By.id("password")).sendKeys(password);
+		objLoginPage=new testLoginPage(driver);
+		objLoginPage.LoginValid(username, password);
+
+		//	driver.findElement(By.id("name")).sendKeys(username);
+		//driver.findElement(By.id("password")).sendKeys(password);
 	}
 
 	@And("user clicks on login")
 	public void user_clicks_on_login() {
-		driver.findElement(By.id("login")).click();
+		objLoginPage.ClickLogin();
+		//driver.findElement(By.id("login")).click();
 	}
 
 	@Then("user is navigated to home page")
