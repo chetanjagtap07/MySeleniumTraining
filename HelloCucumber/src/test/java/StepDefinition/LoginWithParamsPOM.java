@@ -9,12 +9,11 @@
 //import io.cucumber.java.en.*;
 //import pkgPageObjectModel.testLoginPage;
 //
-//public class LoginWithParamsDefinition {
+//public class LoginWithParamsPOM {
 //
 //	WebDriver driver = null;
 //	testLoginPage objLoginPage;
-//	
-//	
+//
 //	@Given("user is on browser")
 //	public void user_is_on_browser(){
 //		String strProjectPath =System.getProperty("user.dir");
@@ -28,21 +27,23 @@
 //
 //	@And("user navigates to login")
 //	public void user_navigates_to_login() {
-//		System.out.println("--------Inside Basic Definition- ----------- ");
+//		System.out.println("--------Inside Page Object Model- ----------- ");
 //		driver.navigate().to("https://example.testproject.io/web/");
 //	}
 //
 //	@When("^enters (.*) and (.*)$")
 //	public void enters_user_and_password (String username, String password) {
-//		
-//		driver.findElement(By.id("name")).sendKeys(username);
-//		driver.findElement(By.id("password")).sendKeys(password);
+//		objLoginPage=new testLoginPage(driver);
+//		objLoginPage.LoginValid(username, password);
+//
+//		//	driver.findElement(By.id("name")).sendKeys(username);
+//		//driver.findElement(By.id("password")).sendKeys(password);
 //	}
 //
 //	@And("user clicks on login")
 //	public void user_clicks_on_login() {
-//	
-//		driver.findElement(By.id("login")).click();
+//		objLoginPage.ClickLogin();
+//		//driver.findElement(By.id("login")).click();
 //	}
 //
 //	@Then("user is navigated to home page")
